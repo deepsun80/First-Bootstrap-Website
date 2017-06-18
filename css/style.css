@@ -5,11 +5,6 @@ body {
 
 /*----------banner image---------*/
 
-@media screen and (min-width:768px) {               /*small screen settings*/
-    .jumbotron {
-    height: 550px !important;
-    }
-}
 
 .jumbotron {
    height: 350px;
@@ -17,6 +12,14 @@ body {
    background-position: center;
    background-size: cover;
    margin: 0px;
+}
+
+
+@media screen and (min-width:768px) {               /*small screen settings*/
+    .jumbotron {
+        height: 550px !important;
+        background-attachment: fixed;
+    }
 }
 
 .jumbotron h1 {
@@ -29,6 +32,13 @@ body {
     margin: auto;
     border-radius: 10px;
     margin-top: 160px;
+    animation-name: jumbo_fade;
+    animation-duration: 4s;
+}
+
+@keyframes jumbo_fade{
+    0% {opacity: 0;}
+    100% {opacity: 1.0;}
 }
 
 .jumbotron span {
@@ -37,19 +47,27 @@ body {
 
 .jumbotron .cover {
     background-color: rgba(0,0,0,0.8);
-    height: 600px;
+    height: 0px;
     width: 100%;
     margin: 0px;
     position: absolute;
     top: 0;
     animation-name: curtain;
-    animation-duration: 4s;
+    animation-duration: 3s;
 }
 
 @keyframes curtain {
-    0% {height: 600px;}
+    0% {height: 350px;}
     100% {height: 0px;}
 }
+
+@media screen and (min-width:768px) {               /*small screen settings*/
+    @keyframes curtain {
+        0% {height: 550px;}
+        100% {height: 0px;}
+    }  
+}
+
 
 /*------------Row 1----------------*/
 
@@ -201,12 +219,24 @@ body {
     width: 25%;
     background-color: red;
     margin: 50px auto;
+}   
+
+.row4 .panel-header {
+    width: 100%;
+    height: 350px;
+    padding-top: 30px;
+}
+
+.img-wrapper {
+    overflow: hidden;
 }
 
 .row4 img {
-    width: 100%;
-    padding: 10px;
-    padding-top: 30px;
+    transition: 1s ease-in-out;
+}
+
+.row4 img:hover {
+   transform: scale(1.2);
 }
 
 .row4 .col-sm-4 {
@@ -230,7 +260,13 @@ body {
     padding: 10px;
 }
 
+.row4 .fa:hover {
+    color: #d9534f;  
+}
+    
+
 /*----------------Footer--------------------*/
+
 
 footer h1{
     font-size: 23px;
@@ -238,7 +274,9 @@ footer h1{
     position: relative;
     bottom: -100px;
     color: white;
+    margin-top: 0px;
 }
+
 
 footer {
     height: 190px;
